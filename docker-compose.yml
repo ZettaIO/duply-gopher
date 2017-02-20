@@ -1,0 +1,21 @@
+version: '2'
+services:
+  duply:
+    build: .
+    volumes:
+      - ./:/srv/duply-gopher
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    hostname: rabbitmq
+    environment:
+      # - RABBITMQ_ERLANG_COOKIE=secret
+      - RABBITMQ_DEFAULT_VHOST=rabbitmq
+      - RABBITMQ_NODENAME=rabbit@rabbitmq
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+    ports:
+      - "8000:15672"
+    volumes:
+      - ./rabbitmq/data:/var/lib/rabbitmq
+  # Service for consuming queue
+  # Service poking over http

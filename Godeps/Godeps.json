@@ -1,0 +1,18 @@
+{
+	"ImportPath": "github.com/ZettaIO/duply-gopher",
+	"GoVersion": "go1.7",
+	"GodepVersion": "v79",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/go-yaml/yaml",
+			"Rev": "a3f3340b5840cee44f372bddb5880fcbc419b46a"
+		},
+		{
+			"ImportPath": "github.com/jasonlvhit/gocron",
+			"Rev": "42a5804d37aa0b9239b265e894a16b8edbf52d54"
+		}
+	]
+}
