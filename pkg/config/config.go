@@ -17,11 +17,12 @@ type Config struct {
 
 // DuplyConfig parameters
 type DuplyConfig struct {
-	Home          string    `yaml:"config_home"`
-	Root          string    `yaml:"root"`
-	ContainerName string    `yaml:"container_name"`
-	Auth          SwiftAuth `yaml:"auth"`
-	Keys          DuplyKeys `yaml:"keys"`
+	Home          string              `yaml:"config_home"`
+	Root          string              `yaml:"root"`
+	ContainerName string              `yaml:"container_name"`
+	Auth          SwiftAuth           `yaml:"auth"`
+	Keys          DuplyKeys           `yaml:"keys"`
+	Globbing      map[string][]string `yaml:"globbing"`
 }
 
 // SwiftAuth config
@@ -89,6 +90,11 @@ func NewConfig(filename string) (*Config, error) {
 // GPGRoot returns the root directory for gpg data
 func (d *DuplyConfig) GPGRoot() string {
 	return path.Join(d.Home, "gpg")
+}
+
+// ProfileRoot returns the root directory for gpg data
+func (d *DuplyConfig) ProfileRoot() string {
+	return path.Join(d.Home, "profile")
 }
 
 // Env returns enviroment variables

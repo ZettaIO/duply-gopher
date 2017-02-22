@@ -1,0 +1,13 @@
+{{ $exclude := index .Globbing "exclude" }}
+{{ $include := index .Globbing "include" }}
+
+{{ if $exclude }}
+{{ range $ex := $exclude }}
+- {{ $ex }}
+{{ end }}
+{{ else if $include }}
+{{ range $in := $include }}
++ {{ $in }}
+{{ end }}
+- **
+{{ end }}

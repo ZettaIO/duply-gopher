@@ -13,11 +13,19 @@ func NewService(conf *config.Config) *Service {
 	// Make sure config directly exists with the right permissions
 	path := conf.Duply.GPGRoot()
 	if _, err := os.Stat(path); os.IsNotExist(err) {
-		glog.Info("Creating duply config dir: ", path)
+		glog.Info("Creating duply gpg root: ", path)
 		os.MkdirAll(path, 0700)
 	} else {
-		glog.Info("Duply config dir already exists: ", path)
+		glog.Info("Duply gpg root already exists: ", path)
 	}
+	path = conf.Duply.ProfileRoot()
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		glog.Info("Creating duply profile dir: ", path)
+		os.MkdirAll(path, 0700)
+	} else {
+		glog.Info("Duply profile dir already exist: ", path)
+	}
+
 	// Import master public key
 	glog.Info("Importing master key")
 	err := gpg.ImportKey(conf)
@@ -30,6 +38,11 @@ func NewService(conf *config.Config) *Service {
 
 	glog.Info("list Keys")
 	gpg.ListKeys(conf)
+
+	err = conf.Duply.WriteGlobbingList()
+	if err != nil {
+		glog.Fatal("Failed to write globbing file: ", err)
+	}
 
 	return &Service{Config: conf}
 }
