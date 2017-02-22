@@ -17,12 +17,17 @@ type Config struct {
 
 // DuplyConfig parameters
 type DuplyConfig struct {
-	Home          string              `yaml:"config_home"`
-	Root          string              `yaml:"root"`
-	ContainerName string              `yaml:"container_name"`
-	Auth          SwiftAuth           `yaml:"auth"`
-	Keys          DuplyKeys           `yaml:"keys"`
-	Globbing      map[string][]string `yaml:"globbing"`
+	Home                   string              `yaml:"config_home"`
+	Root                   string              `yaml:"root"`
+	ArchDir                string              `yaml:"arch_dir"`
+	MaxAge                 string              `yaml:"max_age"`
+	MaxFillBackupAge       string              `yaml:"max_full_backup_age"`
+	MaxFullBackupsWithIncr string              `yaml:"max_full_with_incrs"`
+	VolSize                string              `yaml:"volsize"`
+	ContainerName          string              `yaml:"container_name"`
+	Auth                   SwiftAuth           `yaml:"auth"`
+	Keys                   DuplyKeys           `yaml:"keys"`
+	Globbing               map[string][]string `yaml:"globbing"`
 }
 
 // SwiftAuth config

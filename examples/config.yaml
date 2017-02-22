@@ -7,6 +7,12 @@ http:
 duply:
   config_home: /etc/duply
   container_name: "my-backup"
+  arch_dir: "/var/duply/cache"
+  max_age: "2M"
+  volsize: 100
+  max_full_backups: 2
+  max_full_backup_age: "1M"
+  max_full_with_incrs: 1
   auth:
     swift_auth_url: https://identity.api.zetta.io/v3
     swift_auth_version: 3

@@ -1,0 +1,16 @@
+GPG_KEYS_ENC='{{ .Sig1 }},{{ .Sig2 }}'
+GPG_OPTS='--pinentry-mode loopback'
+GPG_PW='ke4EiPhooShoo0Uito8eeshieS3iey'
+GPG_KEY_SIGN='{{ .Sig2 }}'
+TARGET='swift:///{{ .ContainerName }}'
+SOURCE='{{ .Root }}'
+FILENAME='.duplicity-ignore'
+DUPL_PARAMS="$DUPL_PARAMS --exclude-if-present '$FILENAME'"
+MAX_AGE={{ .MaxAge }}
+MAX_FULL_BACKUPS= {{ .MaxFullBackups }}
+MAX_FULLS_WITH_INCRS={{ .MaxFullBackupsWithIncr }}
+MAX_FULLBKP_AGE={{ .MaxFullBackupAge }}
+DUPL_PARAMS="$DUPL_PARAMS --full-if-older-than $MAX_FULLBKP_AGE"
+VOLSIZE={{ .VolSize }}
+DUPL_PARAMS="$DUPL_PARAMS --volsize $VOLSIZE --allow-source-mismatch"
+ARCH_DIR={{ .ArchDir }}
