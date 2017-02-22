@@ -21,7 +21,7 @@ type DuplyConfig struct {
 	Root                   string              `yaml:"root"`
 	ArchDir                string              `yaml:"arch_dir"`
 	MaxAge                 string              `yaml:"max_age"`
-	MaxFillBackupAge       string              `yaml:"max_full_backup_age"`
+	MaxFullBackupAge       string              `yaml:"max_full_backup_age"`
 	MaxFullBackupsWithIncr string              `yaml:"max_full_with_incrs"`
 	VolSize                string              `yaml:"volsize"`
 	ContainerName          string              `yaml:"container_name"`
