@@ -37,42 +37,132 @@ duply:
       - media
   keys:
     master:
-      id: 6ACEC832
+      id: 312B470B
+      # id: FC5E3EBCEB115799E9DD8754A623E835312B470B
       data: |
         -----BEGIN PGP PUBLIC KEY BLOCK-----
-        Version: GnuPG v1
-
-        mQENBFiqJK0BCADB9ixE1+RG3OfLOImA+1e9WTezroQFHBScg8byESBmyVhfa0bd
-        meTE4JST7fSVup+E/Shh2QvgkicLVOAWR8fAqp/1updU9kOhBnqm1OLUwKJ3xQl9
-        XGgjcrllQiGpLgLUs/GwYU6EA/qXC5VTgFeofZ3ljiCF6guQ8slPDk7R00yVOAvB
-        bETSisNTOCT91bU4MJ51UXNlOTk/SAtcNR8sLPg247DfDYzCVeU3IFt89sC1i49n
-        nDg6jOErZKMg7mYItWnHA7h1H/jgbJDPl0orhG4e4Y4Snv4vp1EByMqSrt4u29g2
-        hMbPdJ5dq7gOdHANhd1jjPja88wRU8O/hx/7ABEBAAG0MUVpbmFyIEZvcnNlbHYg
-        KER1cGx5IE1hc3RlciBLZXkpIDxlaW5hckB6ZXR0YS5pbz6JATgEEwECACIFAliq
-        JK0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEPz4FrJqzsgyCsQH/RIV
-        osIy8cTE5pr5nn6i7SdMbjgs9zzGR7uTXEMJtvFRhF7uwn08TR7kMsK0zCuvok1O
-        b8/mb+dWlFb9EzHn/RP1CV/GJamxQl2a+EFfZwYXoULb6KDPyV2CrxK9Eo9qj4ZK
-        HbmI9hjHJQGO49jV+DkSyedi+eHBfws+pboAiRspUs68CwMa40C/fQ1xmQWNNJAz
-        LDYFPUPF+9wXHXg0TNnG2YpQ7QV3+mgZwt9rlgjLZzdQ8HHNTHUSbgBvKuva8GMn
-        TUFooXexuZIylGQMWpO4THjS7tYPRLyynTI27LHHtyqxSvu8QcYRT7YADX82rrJV
-        0MGVWJGdGoKhXI6zTgK5AQ0EWKokrQEIANUP+dhYaS4NRdHc0fkzHfdoSGz0bmYL
-        1FazW0upPBvt1b9F/u4/R19Tk0Fo2NerliXC8h1V4HIAOmX8hFt8PIJO4KbJ1MZK
-        4vGKzP3LR4cGQZOKF5zsgqTl5HbncDs4vfS3KL1RHoTZvsAUr77kN5Cl1TcGa155
-        Ukgh95Eo+vy8aPIA+cjGuDaLUZnZtG0KfplCzEmXLE9s3k2CrAnRw3tgOO6fbZz5
-        Bkq2qOOEn8TJdsBQgTPC6ZS2bnTQcC08Yr52ODFDTFpCg5vzPILrKTiMWxWzOGo4
-        YYHe2BDt/8flvIIAWG4FMtSkOpJyp3e7s+bs3r7kAUH2FiqKMRPmDCEAEQEAAYkB
-        HwQYAQIACQUCWKokrQIbDAAKCRD8+Bayas7IMmqkCACpWLW6KJ54HzeXPdice/rJ
-        sdbopdicyYTPiUhwjxt10cev123sLlppzbgAyijn4W3u91thXGn1611Xn2kLyTdE
-        sDaw8/7TDoCz+VgMIBkBZ6J4jla7nhx07MDR8lNo63+nK7vnMKuC04tu7sg6BABI
-        lu3tRICTMTQYikf1WSugXAc6ZiKPklTLTuyYSkQDu2MNKk6cDs7CQpJb9YWmcdVb
-        tqn1F0G2M7lDLU6u8htf8+CElvQ25JPl+THdKPPNnqL9HFXabXJ322BCgOkjNeB5
-        7edgnBYfcyI2pvJs0XqSMFvfJ+SoYm3QykyOtayorskAxfX1H4Xcwm4LR8m/K5A6
-        =Dg3R
+        Version: GnuPG v2
+        
+        mQENBFiuFH4BCACfi3wX6gjOKMOTuAuu+r7LbDfBYevvx2RiqvwvnBpZvpo+LvTD
+        x65nwS2trLGjN2ztt+LA/ABEWkVs4ART01bLkpAzCqg9bYBHKBBjBoLr7ykY8Fi8
+        hylnfr5ITl+bRkBmP/X0mgT+954mpbKPrWQZNyS6T9JLDTDd9647tYGVr1gyZwer
+        kQPikzh383wlRzFhruwEDUn/59TaBFoEs2sSL5fSB/zb3YdglisLIni+e4CjuCOL
+        92POSI1g0pym5HnjOPbIqJZAEn80xCZXhXDDZdBBMDEKPNJhzU2Ai31LLdhVyKfU
+        PauKNGKTIrA1GN7Hi44IbMj+ErAOFSjJN+93ABEBAAG0MUVpbmFyIEZvcnNlbHYg
+        KER1cGx5IE1hc3RlciBLZXkpIDxlaW5hckB6ZXR0YS5pbz6JATcEEwEIACEFAliu
+        FH4CGwMFCwkIBwIGFQgJCgsCBBYCAwECHgECF4AACgkQpiPoNTErRwuUhAf+MJKH
+        fJcpkJzfO0ic4eyAJ+wolAgmotr+UrqBMayCBwzpFMO47ieM7SgXAXLOvucn07D6
+        QTFj+dVkF8vkcf+SPADPuji5qAO2qKh3mY9Yu4fuUAyhG0cOh8LdDI6D/uBkpqmT
+        qSMXhJuDbSprRCNzqJpfW42OOAVGwMe2TOi/5jV9KnpDwqAMpN8SBwIc9YiEGMmH
+        hBApKRZG+3yvpFZIYIGMzjBZJc7LM4SHlsb3P4w4MG0JxvjmvkSQHWqqj+BIjv38
+        F2y/fLQ8yymViu9A5eVjfOCjuEfAYvbKrQrbEWoQ4IynMs+XA2JSEK/JeHV2wSoV
+        WmS2ktZITytevo5wYrkBDQRYrhR+AQgAv8WIumMpnkXlXbXlH1zqdoE5zUvOJJZi
+        PDVR7dG/iuWh+NhsZyPZTT6dUJQwjG16hWR1RVynRSrVc4MG36YeTYBM8CQHEpGx
+        fxLKbr7p16O+9c20Vnisi9lSc0v2/KnqI6VneH3f/vNdHRhtdo2zb1n7qCT2WyIz
+        WgmCUk0OhslcFNWdvdSZnxqLZd/XEKCIUQyUw1pjz9+SSSnyY64b2YbUa+YZB91U
+        Lsekhx1u1eIzXfnDaSA0CdOWIWUIBiq8+myWacRfeeVm+F0QFbKYFp2ISYxkgM1F
+        R06aRQfxt0cmtOjI7/iGqlxI9HyxV+x4VLXRQqyw7Undr2GOhH2xBwARAQABiQEf
+        BBgBCAAJBQJYrhR+AhsMAAoJEKYj6DUxK0cLjUsH/0opp5PACYRf39sYJAF4D71I
+        2ELgf80N7BH9j8asMZUs2+eEo3EdWO5cbgheekzo3WIy406YqYRfEFNaIfS79y+W
+        GIhKfkreycp4zzVupJkLuPqRFq+Wt2qCmaXJ3FXpyFbLIyV4Bb+2WcQPmiUqGHBp
+        tOjZ56zMEsQO+5mTIqt427WfbvuNF4IVcHBZ26VkNDtvfIHsJErbdyXB/XQOOhaR
+        hIzNOvu2VeD+cR7YA36klGoCIHN6eBtqt3wSr2Lzjog6DtfgSKeUb4EKaq1PX1qg
+        2giytxjAErHX08hs26guAWcIu388cqHZlkbXFu0Pst9zcyrcOLMHzbESaY6dia8=
+        =qrgd
         -----END PGP PUBLIC KEY BLOCK-----
     host:
       password: password
-      id: XXXXX
+      # id: 42B91145DE2ABD29757E165455DFE97C1A10ED43
+      id: 1A10ED43
       public: |
-        public host key
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+        Version: GnuPG v2
+
+        mQENBFiuFVkBCADbfd9ta1paDuxpJ3ifFzEMPGMW5oR+BQUxnTEwe57b6THSG+wh
+        d+72IWapvPlOHTf6PsMZxDNO06sW8L3M3SVqxVscogLILiGeIcW6aQzGWEizpJK9
+        o/t5h8OcmX6uXUHMp5pnDi/1TT/6iLYsnldasQjJljfl5W9UPY3+FLv6kOX7N74w
+        ijmgiaAE+Rgx02nKK467/ZVaqToAnGI5YXqIiCmeZgdm+VwwXcHevq5gt8/fPazO
+        1tcglpCJwqBXFlKBIxMn0QxJQBztlT4NAvnP92kXip7enyuTzaQRCtnPFrkv03h5
+        5ctAtdq47rMdJ3N/CZE/Od1qL1zJvMZ7p07hABEBAAG0L0VpbmFyIEZvcnNlbHYg
+        KER1cGx5IEhvc3QgS2V5KSA8ZWluYXJAemV0dGEuaW8+iQE3BBMBCAAhBQJYrhVZ
+        AhsDBQsJCAcCBhUICQoLAgQWAgMBAh4BAheAAAoJEFXf6XwaEO1Di7oIAMKmOIxs
+        ETklavHwCCnJ6FW6soWkSUOs0tJXuwKXznmGHv9w4UxoOlS/t4+FeZ1+W6998mqF
+        t22K91QMZfHmYM9D2mlXujYcxBcb2Ue3lbdCPyqob+avk06Hdzwl2XpV4iOr7U2j
+        +JnHg1hApgN7aYekB2gTbYmwGSwdYucpIbps4bXifbSP7DMJs1QhoslXq6wLlAEv
+        KngLueIF7QjSol/I3KOcwAvwzbUUKc5XipATAyNlLgeRrnVuFztM41h1LqBhZiMI
+        zQnlRUE1JiB6HFJCGNvAaTGdtw5wKmVErjtl2vXGL5qjJlp0PsgueuwlNIYbWxda
+        aGjWYhqrTX7BWQe5AQ0EWK4VWQEIAK60AqmWhcRevU8gpzw9oRCxGzEj9p86BOzq
+        sDF27Ps2yvnO7dLWMd+JmsbSswnuMIq4xZda888HRqdKG5xROp4tMHuNQh93ceRX
+        F3m2WsUR4SLbONxkVV7iY/xInBIDGWr9glJwXq594FjNLjw0u+YQeqLDxMjMgybu
+        uNxPQLMTQWv279iPc/rikVlt68Ugc3pOwju/Oq+H1KjEEDY0Z++Cf2Hkxr84QuNx
+        tb1GKjwEP+aBbJUnRZC0YgKqRfDPobbFKWvSIQYJ3ZL0dtmJfFErlaCp53Oj9xde
+        +t7jtcGdkENIr693RRmLAvvjTgLQtofE97nH3cM8MLWFIEwTo9sAEQEAAYkBHwQY
+        AQgACQUCWK4VWQIbDAAKCRBV3+l8GhDtQ8nbCACegCs1nsFt+jualpepCAuE0Ala
+        aR83NTYjx645mqouUHTY7Por+T4oYpwFw+5txR04HYOoz1tXAdk2mMU44vHEpNVT
+        cPp+VR4QnuTcmaVOTd/4U6JVG93NEt1TRgh2YjZcfvrSU0gTs6ULRR8GocFRpPbn
+        9cJsqPOevSf6KQ8xO7qvWYUQS6+s0p4P9Pc/vDy5WHfanhzM8S0+wOjGig+zxdh+
+        OQcRWWeaEpYEeRsO1+uRHuGWcDFcC7d7wjPUbFosWNBQtPFvIu/2oMh87rsZQZpk
+        oLd6Ghe2GDhgBG3JWsQhGSQbuHAfii+9OsXwQtxONn47h5krktqPpS2sINO/
+        =O/O4
+        -----END PGP PUBLIC KEY BLOCK-----
       private: |
-        private host key
+        -----BEGIN PGP PRIVATE KEY BLOCK-----
+        Version: GnuPG v2
+
+        lQPGBFiuFH4BCACfi3wX6gjOKMOTuAuu+r7LbDfBYevvx2RiqvwvnBpZvpo+LvTD
+        x65nwS2trLGjN2ztt+LA/ABEWkVs4ART01bLkpAzCqg9bYBHKBBjBoLr7ykY8Fi8
+        hylnfr5ITl+bRkBmP/X0mgT+954mpbKPrWQZNyS6T9JLDTDd9647tYGVr1gyZwer
+        kQPikzh383wlRzFhruwEDUn/59TaBFoEs2sSL5fSB/zb3YdglisLIni+e4CjuCOL
+        92POSI1g0pym5HnjOPbIqJZAEn80xCZXhXDDZdBBMDEKPNJhzU2Ai31LLdhVyKfU
+        PauKNGKTIrA1GN7Hi44IbMj+ErAOFSjJN+93ABEBAAH+BwMCwF72NP/RTz/kkJ+X
+        lOUD12YDsS3mH5duQfXbbYSXkjYhEGEE+caa7dFxBaFpvxJSHbYYyeuWLPJgkFIm
+        yEoAce1CaFNOc56YsO/KEbEZ2rjNd4EPUQzDh3qF5qH2CSmLeATqk8IKy8bg+NIv
+        nnGBpV0Ed4rto1JdNuJUWsY92zSz/EQpMITFIMvHvUaf1iX+SRu//le5acQnWH8z
+        7sNBRCJ5v26AEG36A70BhfJNId5xNAFuNJnEwG0sx6UOKmWKa67JQxYwiztAphnS
+        s2mg3UeionbtisBmTqGkTus/xHPOJTkVOYkAF9c03N9sSTOMJMCH67nFxM+6ej2B
+        WdaJwUN6AmgDCGTty/tnwQxqUDWto9DIlHhk1hOGY4UJadXmgQ5lk0BzSwm3EIj9
+        R6nnOd6v//NXFLRlglTeCim0pGaPhO/CuxKlh1Ams7NWEGcApRs3N/QUcSpB3np7
+        /zUlOZMe9J5rIcjEZ2kSF+s8G0MYc9j7R9KJOEXwW2omtet5+iKKxu91MZiyyiLm
+        OVx8eiU5t+vn22w0io1gm34+LzCMWnhObylNwOuXDEfaoqZMXMpfK9IGV5DMctzy
+        iMSfW8pnMxZ0/RH5IGR60CVHakqpHPwoKHiZ9W5VHvBhxReUmkJWnytU6dkn62ZX
+        Kyb98ffExiIFV6XELcYyG1yCIlKxKvuda/8LMn6v0trtvRQGCgCbOPez1jBc71qE
+        CN5GQL0VTW062Tno5QGpK9OXDy0Qe1LP0zveJWn+GBiNVkCscJt4VIMdLg1C49Rd
+        qaFz1b3WHtd4OGykzXCnRqwUeDKSRXmDy6jPkYeJ3/2T/1WMs7C5Hy9SsWKflyLy
+        eBHRoYvm8rGOfYEn0z8TEMXa16kyDG7inEoWUf1k/l2nq/G/yfwRyCUVER8eeyU2
+        QK4LtFS9nS8rtDFFaW5hciBGb3JzZWx2IChEdXBseSBNYXN0ZXIgS2V5KSA8ZWlu
+        YXJAemV0dGEuaW8+iQE3BBMBCAAhBQJYrhR+AhsDBQsJCAcCBhUICQoLAgQWAgMB
+        Ah4BAheAAAoJEKYj6DUxK0cLlIQH/jCSh3yXKZCc3ztInOHsgCfsKJQIJqLa/lK6
+        gTGsggcM6RTDuO4njO0oFwFyzr7nJ9Ow+kExY/nVZBfL5HH/kjwAz7o4uagDtqio
+        d5mPWLuH7lAMoRtHDofC3QyOg/7gZKapk6kjF4Sbg20qa0Qjc6iaX1uNjjgFRsDH
+        tkzov+Y1fSp6Q8KgDKTfEgcCHPWIhBjJh4QQKSkWRvt8r6RWSGCBjM4wWSXOyzOE
+        h5bG9z+MODBtCcb45r5EkB1qqo/gSI79/Bdsv3y0PMsplYrvQOXlY3zgo7hHwGL2
+        yq0K2xFqEOCMpzLPlwNiUhCvyXh1dsEqFVpktpLWSE8rXr6OcGKdA8YEWK4UfgEI
+        AL/FiLpjKZ5F5V215R9c6naBOc1LziSWYjw1Ue3Rv4rlofjYbGcj2U0+nVCUMIxt
+        eoVkdUVcp0Uq1XODBt+mHk2ATPAkBxKRsX8Sym6+6dejvvXNtFZ4rIvZUnNL9vyp
+        6iOlZ3h93/7zXR0YbXaNs29Z+6gk9lsiM1oJglJNDobJXBTVnb3UmZ8ai2Xf1xCg
+        iFEMlMNaY8/fkkkp8mOuG9mG1GvmGQfdVC7HpIcdbtXiM135w2kgNAnTliFlCAYq
+        vPpslmnEX3nlZvhdEBWymBadiEmMZIDNRUdOmkUH8bdHJrToyO/4hqpcSPR8sVfs
+        eFS10UKssO1J3a9hjoR9sQcAEQEAAf4HAwJvhd+C4U7iJuQbSCp5u+/1UQ5jrA65
+        GoksbOMjnvR2E50x9+D1mq1d0SKEqRXXSNmimhVRHpdYBfEIU+L0VesQnrF+npUl
+        BzwLfS2fIUdl7sqEyJ9MSQDM3YZs/kljSyXFoTWOM8LqyVVnIN7bDzhZJPtJukjy
+        a/28VU8Is7fp5GuQSmDatujtLBCzUDB/x4ZrQljxpCUpnYAGHFMhWmTywD1erLNg
+        a3XvR2SiZbhazYc6KoH7XlNlfayRsrq+Da/3Gt4wmpk1Is1y+FfXiBENAUSiyDpt
+        k+hxGUkvGKQYeTRS94Eb5wqfa7fyvfUOtqKg8HwEknSiEIA1U1qAAglRf4SQDQRr
+        cV3X1jq433HkwmR3GEL/xWEfB3ncoBlAsLjoS85ZDHMGYOPQrDVlC4VV2yFsT9KQ
+        qMgiTQyj14o2LMH3fFjCdndveLcyhYKo09GkF5ZjChN9Jy2exmyFPVAqvxXViorC
+        5nmcC2+Y8Xs8I14d/c79DJGck8bwWnpXWZayA8iJRhLZ70yRG9rolkMEflpf21jg
+        VkyTYbC/wFtsaO689zm/WUpNtT9/vogOskWI002BAs5Gvws4hOSJgqS/KzhPbUwW
+        AUgrNOH2+60d7SGGo41lvX/LVtqznZg21YTh34Ti7xxq+zZEMLA+VHbHnv2nGohn
+        TmZ7nkBdnSv6up5SIAN5q4EIR34K5hcugTf1aBFkcca47lYsBf5QeAMw1ng2hTks
+        QZLupt8J4yOzPC3h7IXyJXg6DsMEst51XreyXln+5/6HQYXn0SLSXOzicLw6ibCj
+        KiPxYA8sNLPp6gT2273nizEZeQUWuh96A0884SCo8nHJRI0rHvQVr7fVVI62uqXC
+        OrDwSxsZA6ZYRrvKNfmXDimElR3/DDLNiLueq7Es9IsiMvkS/wEq90luRV8J22WJ
+        AR8EGAEIAAkFAliuFH4CGwwACgkQpiPoNTErRwuNSwf/Simnk8AJhF/f2xgkAXgP
+        vUjYQuB/zQ3sEf2PxqwxlSzb54SjcR1Y7lxuCF56TOjdYjLjTpiphF8QU1oh9Lv3
+        L5YYiEp+St7JynjPNW6kmQu4+pEWr5a3aoKZpcncVenIVssjJXgFv7ZZxA+aJSoY
+        cGm06NnnrMwSxA77mZMiq3jbtZ9u+40XghVwcFnbpWQ0O298gewkStt3JcH9dA46
+        FpGEjM06+7ZV4P5xHtgDfqSUagIgc3p4G2q3fBKvYvOOiDoO1+BIp5RvgQpqrU9f
+        WqDaCLK3GMASsdfTyGzbqC4BZwi7fzxyodmWRtcW7Q+y33NzKtw4swfNsRJpjp2J
+        rw==
+        =4n9Z
+        -----END PGP PRIVATE KEY BLOCK-----

@@ -18,7 +18,10 @@ func main() {
 		glog.Fatalf("Failed to read config file: %v", err)
 	}
 
-	srv := service.NewService(conf)
+	srv, err := service.NewService(conf)
+	if err != nil {
+		glog.Fatal(err)
+	}
 	// Configure Tasks and steps
 	srv.Run()
 

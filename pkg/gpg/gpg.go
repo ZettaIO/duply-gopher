@@ -11,12 +11,81 @@ import (
 	"github.com/golang/glog"
 )
 
-// ImportKey imports a gpg key into the keychain
-func ImportKey(conf *config.Config) error {
-	cmd := exec.Command("gpg", "--import")
+// ImportKeys imports keys in conig
+func ImportKeys(conf *config.Config) error {
+	path := conf.Duply.GPGRoot()
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		glog.Info("Creating duply gpg root: ", path)
+		os.MkdirAll(path, 0700)
+	} else {
+		glog.Info("Duply gpg root already exists: ", path)
+	}
+
+	env := conf.Env()
+	// Import master public key
+	glog.Info("Importing master key")
+	err := importPublicKey(env, conf.Duply.Keys.Master.Data)
+	if err != nil {
+		glog.Fatalf("Failed to import master key: %v", err)
+	}
+
+	// Import host public key
+	glog.Info("Importing host public key")
+	err = importPublicKey(env, conf.Duply.Keys.Host.Public)
+	if err != nil {
+		glog.Fatalf("Failed to import host public key: %v", err)
+	}
+
+	// Import host private key
+	glog.Info("Importing host public key")
+	err = importPrivateKey(
+		env,
+		conf.Duply.Keys.Host.Private,
+		conf.Duply.Keys.Host.Password)
+	if err != nil {
+		glog.Fatalf("Failed to import host private key: %v", err)
+	}
+	return nil
+}
+
+// ImportPublicKey imports a gpg key into the keychain
+func importPublicKey(env []string, keyData string) error {
+	err := importKey(env, keyData, "")
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// ImportPrivateKey imports a gpg key into the keychain
+func importPrivateKey(env []string, keyData, passphrase string) error {
+	err := importKey(env, keyData, passphrase)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func importKey(env []string, keyData, passphrase string) error {
+	cmd := exec.Command("dummy")
+	if passphrase != "" {
+		cmd = exec.Command(
+			"gpg2",
+			"--pinentry-mode=loopback",
+			"--passphrase",
+			passphrase,
+			"--no-tty",
+			"--import")
+	} else {
+		cmd = exec.Command(
+			"gpg2",
+			"--pinentry-mode=loopback",
+			"--no-tty",
+			"--import")
+	}
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	cmd.Env = conf.Env()
+	cmd.Env = env
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
 		return err
@@ -24,7 +93,7 @@ func ImportKey(conf *config.Config) error {
 	if err = cmd.Start(); err != nil {
 		return err
 	}
-	io.WriteString(stdin, conf.Duply.Keys.Master.Data)
+	io.WriteString(stdin, keyData)
 	stdin.Close()
 	err = cmd.Wait()
 	if err != nil {

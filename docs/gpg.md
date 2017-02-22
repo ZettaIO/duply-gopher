@@ -6,6 +6,9 @@ internally setting the `GNUPGHOME` environment variable. This will be set
 using the config value `duply.config_home`/gpg. It can be confusing
 when messing around with keys manually on the host.
 
+**If you create keys on a different computer, make sure you are using
+compatible gpg versions. gpg1.x and gpg2.x don't always play well together.**
+
 ## Generating Master Key
 
 Choose RSA 2048. Make sure you give the key a proper user ID so you can locate
@@ -24,7 +27,7 @@ We now have master key pair with ID 6ACEC832
 ### Export
 ```
 $> gpg --armor --export-secret-key -a 6ACEC832 > master_private.key
-$> gpg --armor --export-secret-key -a 6ACEC832 > master_public.key
+$> gpg --armor --export -a 6ACEC832 > master_public.key
 ```
 
 ## Generating Public Key
