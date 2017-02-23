@@ -1,13 +1,14 @@
 {{ $exclude := index .Globbing "exclude" }}
 {{ $include := index .Globbing "include" }}
+{{ $root := .Root}}
 
 {{ if $exclude }}
 {{ range $ex := $exclude }}
-- {{ $ex }}
+- {{ $root }}{{ $ex }}
 {{ end }}
 {{ else if $include }}
 {{ range $in := $include }}
-+ {{ $in }}
++ {{ $root }}{{ $in }}
 {{ end }}
 - **
 {{ end }}

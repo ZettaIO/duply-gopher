@@ -1,6 +1,6 @@
 GPG_KEYS_ENC='{{ .Keys.Host.ID }},{{ .Keys.Master.ID }}'
 GPG_OPTS='--pinentry-mode loopback'
-GPG_PW='ke4EiPhooShoo0Uito8eeshieS3iey'
+GPG_PW='{{ .Keys.Host.Password }}'
 GPG_KEY_SIGN='{{ .Keys.Host.ID }}'
 TARGET='swift:///{{ .ContainerName }}'
 SOURCE='{{ .Root }}'

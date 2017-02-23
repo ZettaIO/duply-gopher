@@ -17,5 +17,6 @@ services:
       - "8000:15672"
     volumes:
       - ./rabbitmq/data:/var/lib/rabbitmq
+      - ./data:/backup
   # Service for consuming queue
   # Service poking over http

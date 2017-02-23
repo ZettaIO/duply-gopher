@@ -7,6 +7,7 @@ http:
 duply:
   config_home: /etc/duply
   container_name: "my-backup"
+  root: /backup/
   arch_dir: "/var/duply/cache"
   volsize: 100
   max_age: "2M"
@@ -22,10 +23,9 @@ duply:
     swift_project_name: "project"
     swift_user_domain_name: "domain"
     swift_project_domain_name: "domain"
-  root: /backup/
   globbing:
-    include:
-      - moo
+    # include:
+    #   - moo
     exclude:
       - dev
       - mnt
