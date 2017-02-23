@@ -8,8 +8,8 @@ duply:
   config_home: /etc/duply
   container_name: "my-backup"
   arch_dir: "/var/duply/cache"
-  max_age: "2M"
   volsize: 100
+  max_age: "2M"
   max_full_backups: 2
   max_full_backup_age: "1M"
   max_full_with_incrs: 1
@@ -42,7 +42,7 @@ duply:
       data: |
         -----BEGIN PGP PUBLIC KEY BLOCK-----
         Version: GnuPG v2
-        
+
         mQENBFiuFH4BCACfi3wX6gjOKMOTuAuu+r7LbDfBYevvx2RiqvwvnBpZvpo+LvTD
         x65nwS2trLGjN2ztt+LA/ABEWkVs4ART01bLkpAzCqg9bYBHKBBjBoLr7ykY8Fi8
         hylnfr5ITl+bRkBmP/X0mgT+954mpbKPrWQZNyS6T9JLDTDd9647tYGVr1gyZwer

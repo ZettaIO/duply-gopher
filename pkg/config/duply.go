@@ -9,6 +9,15 @@ const (
 
 // WriteProfile writes the duply profile
 func (d *DuplyConfig) WriteProfile() error {
+	dest := path.Join(d.ProfileRoot(), "conf")
+	t, err := NewTemplate(profileTemplate, dest)
+	if err != nil {
+		return err
+	}
+	err = t.Execute(d)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 

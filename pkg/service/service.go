@@ -33,6 +33,10 @@ func NewService(conf *config.Config) (*Service, error) {
 	if err != nil {
 		return nil, fmt.Errorf("Failed to write globbing file: %v", err)
 	}
+	err = conf.Duply.WriteProfile()
+	if err != nil {
+		return nil, fmt.Errorf("Failed to write profile file: %v", err)
+	}
 
 	return &Service{Config: conf}, nil
 }
