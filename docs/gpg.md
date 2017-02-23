@@ -6,8 +6,7 @@ internally setting the `GNUPGHOME` environment variable. This will be set
 using the config value `duply.config_home`/gpg. It can be confusing
 when messing around with keys manually on the host.
 
-**If you create keys on a different computer, make sure you are using
-compatible gpg versions. gpg1.x and gpg2.x don't always play well together.**
+**Use gpg 2.x. 1.x keys are not always compatible.**
 
 ## Generating Master Key
 
