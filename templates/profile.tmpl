@@ -1,7 +1,7 @@
 GPG_KEYS_ENC='{{ .Keys.Host.ID }},{{ .Keys.Master.ID }}'
 GPG_OPTS='--pinentry-mode loopback'
 GPG_PW='{{ .Keys.Host.Password }}'
-GPG_KEY_SIGN='{{ .Keys.Host.ID }}'
+GPG_KEY_SIGN='{{ .Keys.Master.ID }}'
 TARGET='swift:///{{ .ContainerName }}'
 SOURCE='{{ .Root }}'
 FILENAME='.duplicity-ignore'
