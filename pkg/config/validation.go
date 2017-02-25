@@ -1,6 +1,9 @@
 package config
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // Verify config value
 func (c *Config) Verify() error {
@@ -29,9 +32,35 @@ func (d *DuplyConfig) Verify() error {
 	return nil
 }
 
-// Verify swift auth
-// FIXME: There's probably a much simpler way to verify things..
+// Verify swift auth parameters
 func (a *SwiftAuth) Verify() error {
+	// Add auth from env variables if empty
+	if a.URL == "" {
+		a.URL = os.Getenv("SWIFT_AUTHURL")
+	}
+	if a.Version == "" {
+		a.Version = os.Getenv("SWIFT_AUTHVERSION")
+	}
+	if a.Region == "" {
+		a.Region = os.Getenv("SWIFT_REGION_NAME")
+	}
+	if a.Username == "" {
+		a.Username = os.Getenv("SWIFT_USERNAME")
+	}
+	if a.Password == "" {
+		a.Password = os.Getenv("SWIFT_PASSWORD")
+	}
+	if a.ProjectName == "" {
+		a.ProjectName = os.Getenv("SWIFT_TENANTNAME")
+	}
+	if a.UserDomainName == "" {
+		a.UserDomainName = os.Getenv("SWIFT_USER_DOMAIN_NAME")
+	}
+	if a.ProjectDomainName == "" {
+		a.ProjectDomainName = os.Getenv("SWIFT_PROJECT_DOMAIN_NAME")
+	}
+
+	// Finally check all values
 	err := errEmpty("duply.auth.swift_auth_url", a.URL)
 	if err != nil {
 		return err
@@ -80,6 +109,7 @@ func (d *DuplyKeys) Verify() error {
 	return nil
 }
 
+// errEmpty checks if a string is empty and creates an appropriate error
 func errEmpty(name, value string) error {
 	if value == "" {
 		return fmt.Errorf("Field '%v' cannot be empty", name)
