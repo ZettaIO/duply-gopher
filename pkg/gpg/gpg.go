@@ -41,7 +41,7 @@ func ImportKeys(conf *config.Config) error {
 	}
 
 	// Import host private key
-	glog.Info("Importing host public key")
+	glog.Info("Importing host private key")
 	err = importPrivateKey(
 		env,
 		conf.Duply.Keys.Host.Private,

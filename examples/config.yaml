@@ -6,7 +6,7 @@ http:
   shared_secret: "my-shared-secret"
 duply:
   config_home: /etc/duply
-  container_name: "my-backup"
+  container_name: "duply"
   root: /backup/
   arch_dir: "/var/duply/cache"
   volsize: 100
@@ -14,15 +14,16 @@ duply:
   max_full_backups: 2
   max_full_backup_age: "1M"
   max_full_with_incrs: 1
-  auth:
-    swift_auth_url: https://identity.api.zetta.io/v3
-    swift_auth_version: 3
-    swift_region_name: "no-osl1"
-    swift_username: "username"
-    swift_password: "password"
-    swift_project_name: "project"
-    swift_user_domain_name: "domain"
-    swift_project_domain_name: "domain"
+  # Can be configured with env variables
+  # auth:
+  #   swift_auth_url: https://identity.api.zetta.io/v3
+  #   swift_auth_version: 3
+  #   swift_region_name: "no-osl1"
+  #   swift_username: ""
+  #   swift_password: ""
+  #   swift_project_name: ""
+  #   swift_user_domain_name: ""
+  #   swift_project_domain_name: ""
   globbing:
     # include:
     #   - moo
@@ -37,7 +38,7 @@ duply:
       - media
   keys:
     master:
-      id: 312B470B
+      id: FC5E3EBCEB115799E9DD8754A623E835312B470B
       # id: FC5E3EBCEB115799E9DD8754A623E835312B470B
       data: |
         -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -72,8 +73,8 @@ duply:
         -----END PGP PUBLIC KEY BLOCK-----
     host:
       password: password
-      # id: 42B91145DE2ABD29757E165455DFE97C1A10ED43
-      id: 1A10ED43
+      id: 42B91145DE2ABD29757E165455DFE97C1A10ED43
+      # id: 1A10ED43
       public: |
         -----BEGIN PGP PUBLIC KEY BLOCK-----
         Version: GnuPG v2
@@ -163,6 +164,5 @@ duply:
         cGm06NnnrMwSxA77mZMiq3jbtZ9u+40XghVwcFnbpWQ0O298gewkStt3JcH9dA46
         FpGEjM06+7ZV4P5xHtgDfqSUagIgc3p4G2q3fBKvYvOOiDoO1+BIp5RvgQpqrU9f
         WqDaCLK3GMASsdfTyGzbqC4BZwi7fzxyodmWRtcW7Q+y33NzKtw4swfNsRJpjp2J
-        rw==
-        =4n9Z
+        rw===4n9Z
         -----END PGP PRIVATE KEY BLOCK-----
