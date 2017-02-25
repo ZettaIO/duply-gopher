@@ -4,6 +4,19 @@ services:
     build: .
     volumes:
       - ./:/srv/duply-gopher
+      - ./data:/backup
+    environment:
+      # For easy management when entering the container
+      - GNUPGHOME=/etc/duply/gpg
+      # We can send auth parameters as env variables as well
+      - SWIFT_AUTHURL=${OS_AUTH_URL}
+      - SWIFT_AUTHVERSION=${OS_IDENTITY_API_VERSION}
+      - SWIFT_USERNAME=${OS_USERNAME}
+      - SWIFT_PASSWORD=${OS_PASSWORD}
+      - SWIFT_REGION_NAME=${OS_REGION_NAME}
+      - SWIFT_USER_DOMAIN_NAME=${OS_PROJECT_DOMAIN_NAME}
+      - SWIFT_PROJECT_DOMAIN_NAME=${OS_USER_DOMAIN_NAME}
+      - SWIFT_TENANTNAME=${OS_PROJECT_NAME}
   rabbitmq:
     image: rabbitmq:3-management-alpine
     hostname: rabbitmq
