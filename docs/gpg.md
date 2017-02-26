@@ -6,7 +6,18 @@ internally setting the `GNUPGHOME` environment variable. This will be set
 using the config value `duply.config_home`/gpg. It can be confusing
 when messing around with keys manually on the host.
 
-**Use gpg 2.x. 1.x keys are not always compatible.**
+Also note that using 8, 16 or 32 characters in key IDs works perfectly fine
+in `config.yaml`.
+
+**Use gpg 2.x when possible. 1.x keys are not always compatible.**
+
+## The purpose of the gpg keys
+
+- Each host should have a unique public/private key
+- Supply the same public master key to every single host
+- Each host will trust the master key meaning you will be able to decrypt
+  all backups using master private key you have stored somewhere safe
+- If a host is compromised, the intruder will only be able to access backup for the host
 
 ## Generating Master Key
 
@@ -28,6 +39,9 @@ We now have master key pair with ID 6ACEC832
 $> gpg --armor --export-secret-key -a 6ACEC832 > master_private.key
 $> gpg --armor --export -a 6ACEC832 > master_public.key
 ```
+
+Make sure you store the mater key somewhere safe as the master key can be
+used to decrypt all backups (and of course remember the password)
 
 ## Generating Public Key
 
