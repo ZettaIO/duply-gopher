@@ -12,6 +12,8 @@ See also [notes about gpg](gpg.md).
 
 # Configuration sections
 
+See also [config.json example](../examples/config.json).
+
 ## duply
 
 - `config_home`: Configuration location
