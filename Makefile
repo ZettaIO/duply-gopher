@@ -9,7 +9,7 @@ endif
 build: clean
 	CGO_ENABLED=0 GOOS=${GOOS} go build -a -installsuffix cgo \
 		-ldflags "-s -w -X ${PKG}/pkg/version.RELEASE=${RELEASE} -X ${PKG}/pkg/version.COMMIT=${COMMIT} -X ${PKG}/pkg/version.REPO=${REPO_INFO}" \
-		-o duply-go cmd/duply-gopher/main.go
+		-o rootfs/duply-gopher pkg/cmd/main.go
 
 clean:
 	rm -f duply-go
