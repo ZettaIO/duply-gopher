@@ -1,5 +1,7 @@
 package service
 
+import "github.com/golang/glog"
+
 // Task that can be scheduled
 type Task struct {
 	Results []TaskStepResult
@@ -7,8 +9,8 @@ type Task struct {
 }
 
 // NewTask with steps
-func NewTask(steps []TaskStep) Task {
-	return Task{
+func NewTask(steps []TaskStep) *Task {
+	return &Task{
 		Steps:   steps,
 		Results: make([]TaskStepResult, len(steps)),
 	}
@@ -16,7 +18,9 @@ func NewTask(steps []TaskStep) Task {
 
 // Run the task
 func (t *Task) Run() error {
+	glog.Info("Running task..")
 	for i, step := range t.Steps {
+		glog.Infof("Task step %v: %v", i, step.Name())
 		result, err := step.Run()
 		if err != nil {
 			return err

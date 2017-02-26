@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/ZettaIO/duply-gopher/pkg/config"
 	"github.com/ZettaIO/duply-gopher/pkg/service"
@@ -27,7 +28,8 @@ func main() {
 
 	// Wait forever until SIGTERM
 	glog.Info("All done. Waiting..")
-	// handleSigterm()
+	time.Sleep(time.Second * 100)
+	handleSigterm()
 }
 
 // ArgsParsed contains all arguments paresed from commandline

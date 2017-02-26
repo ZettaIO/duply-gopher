@@ -1,37 +1,27 @@
 package service
 
 import (
-	"fmt"
-
+	"github.com/golang/glog"
 	"github.com/jasonlvhit/gocron"
 )
 
-// Just testing
-func testing() {
-	s := gocron.NewScheduler()
-	s.Every(5).Seconds().Do(task1)
-	s.Every(1).Second().Do(tick)
-
-	s.Every(10).Seconds().Do(clear, s)
-
-	fmt.Println("Starting cron")
-	<-s.Start()
-	fmt.Println("Stopping")
+type TaskScheduler struct {
+	scheduler *gocron.Scheduler
+	task      *Task
 }
 
-func task1() {
-	fmt.Println("[Task1]")
+func NewTaskScheduler(task *Task) TaskScheduler {
+	return TaskScheduler{
+		task:      task,
+		scheduler: gocron.NewScheduler(),
+	}
 }
 
-func tick() {
-	fmt.Println(".")
-}
-
-func clear(s *gocron.Scheduler) {
-	s.Clear()
-	s.Every(1).Second().Do(moo)
-}
-
-func moo() {
-	fmt.Println("Moo")
+func (t TaskScheduler) RunAt(timestamp string) {
+	glog.Info("Updating scheduler: ", timestamp)
+	t.scheduler.Every(10).Seconds().Do(func() {
+		glog.Info("Tick..")
+		t.task.Run()
+	})
+	t.scheduler.Start()
 }

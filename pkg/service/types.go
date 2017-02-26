@@ -7,7 +7,9 @@ import (
 
 // Service ..
 type Service struct {
-	Config *config.Config
+	Config    *config.Config
+	Task      *Task
+	Scheduler TaskScheduler
 }
 
 // TaskStep interface
@@ -25,12 +27,12 @@ type TaskStepResult interface {
 type DummyStep struct{}
 
 // Run the dummy task
-func (d *DummyStep) Run() (TaskStepResult, error) {
+func (d DummyStep) Run() (TaskStepResult, error) {
 	glog.Info("Running dummy step")
 	return nil, nil
 }
 
 // Name of the step
-func (d *DummyStep) Name() string {
+func (d DummyStep) Name() string {
 	return "DummyStep"
 }

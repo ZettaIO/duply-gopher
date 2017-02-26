@@ -38,14 +38,21 @@ func NewService(conf *config.Config) (*Service, error) {
 		return nil, fmt.Errorf("Failed to write profile file: %v", err)
 	}
 
-	return &Service{Config: conf}, nil
+	s := &Service{Config: conf}
+	steps := []TaskStep{
+		DuplyBackupStep{},
+		DuplyBackupStep{},
+	}
+	s.Task = NewTask(steps)
+	s.Scheduler = NewTaskScheduler(s.Task)
+	return s, nil
 }
 
 // Run the service
 func (s *Service) Run() {
+	glog.Info("Running service..")
 	// Run scheduler
-
+	s.Scheduler.RunAt("00:20")
 	// Run http
-
 	// Run MQ
 }
