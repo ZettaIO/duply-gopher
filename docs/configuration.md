@@ -12,7 +12,7 @@ See also [notes about gpg](gpg.md).
 
 # Configuration sections
 
-See also [config.json example](../examples/config.json).
+See also [config.json example](../examples/config.yaml).
 
 ## duply
 
