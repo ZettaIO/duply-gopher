@@ -1,28 +1,60 @@
 package service
 
-import "github.com/golang/glog"
+import (
+	"github.com/ZettaIO/duply-gopher/pkg/config"
+	"github.com/golang/glog"
+)
 
-// TaskStep interface
-type TaskStep interface {
-	Name() string
-	Run() (TaskStepResult, error)
+// DuplyBackupStep ...
+type DuplyBackupStep struct {
+	config *config.DuplyConfig
 }
 
-// TaskStepResult is a generic result
-type TaskStepResult interface {
-	Marshall() []byte
+// DuplyBackupResult ..
+type DuplyBackupResult struct{}
+
+// Duply Backup
+
+// Run duply backup
+func (s *DuplyBackupStep) Run() (DuplyBackupResult, error) {
+	glog.Info("Running duply backup")
+	// ...
+	return DuplyBackupResult{}, nil
 }
 
-// DummyStep for testing
-type DummyStep struct{}
-
-// Run the dummy task
-func (d *DummyStep) Run() (TaskStepResult, error) {
-	glog.Info("Running dummy step")
-	return nil, nil
+// Name of the duply backup step
+func (s *DuplyBackupStep) Name() string {
+	return "Duply Backup"
 }
 
-// Name of the step
-func (d *DummyStep) Name() string {
-	return "DummyStep"
+// Marshall to json
+func (r *DuplyBackupResult) Marshall() []byte {
+	return []byte("{}")
+}
+
+// Duply Purge
+
+// DuplyPurgeStep step
+type DuplyPurgeStep struct {
+	config *config.DuplyConfig
+}
+
+// DuplyPurgeResult result
+type DuplyPurgeResult struct{}
+
+// Run purge backup step
+func (s *DuplyPurgeStep) Run() (DuplyPurgeResult, error) {
+	glog.Info("Running duply backup")
+	// ...
+	return DuplyPurgeResult{}, nil
+}
+
+// Name of the purge step
+func (s *DuplyPurgeStep) Name() string {
+	return "Duply Purge"
+}
+
+// Marshall result into json
+func (r *DuplyPurgeResult) Marshall() []byte {
+	return []byte("{}")
 }

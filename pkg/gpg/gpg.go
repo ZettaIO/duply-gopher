@@ -16,8 +16,8 @@ import (
 const gpg_command = "gpg2"
 
 // ImportKeys imports keys in conig
-func ImportKeys(conf *config.Config) error {
-	path := conf.Duply.GPGRoot()
+func ImportKeys(conf *config.DuplyConfig) error {
+	path := conf.GPGRoot()
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		glog.Info("Creating duply gpg root: ", path)
 		os.MkdirAll(path, 0700)
@@ -28,14 +28,14 @@ func ImportKeys(conf *config.Config) error {
 	env := conf.Env()
 	// Import master public key
 	glog.Info("Importing master key")
-	err := importPublicKey(env, conf.Duply.Keys.Master.Data)
+	err := importPublicKey(env, conf.Keys.Master.Data)
 	if err != nil {
 		glog.Fatalf("Failed to import master key: %v", err)
 	}
 
 	// Import host public key
 	glog.Info("Importing host public key")
-	err = importPublicKey(env, conf.Duply.Keys.Host.Public)
+	err = importPublicKey(env, conf.Keys.Host.Public)
 	if err != nil {
 		glog.Fatalf("Failed to import host public key: %v", err)
 	}
@@ -44,8 +44,8 @@ func ImportKeys(conf *config.Config) error {
 	glog.Info("Importing host private key")
 	err = importPrivateKey(
 		env,
-		conf.Duply.Keys.Host.Private,
-		conf.Duply.Keys.Host.Password)
+		conf.Keys.Host.Private,
+		conf.Keys.Host.Password)
 	if err != nil {
 		glog.Fatalf("Failed to import host private key: %v", err)
 	}
@@ -153,7 +153,7 @@ func importKey(env []string, keyData, passphrase string) error {
 }
 
 // ListKeys ..
-func ListKeys(conf *config.Config) {
+func ListKeys(conf *config.DuplyConfig) {
 	cmd := exec.Command(gpg_command, "--list-keys")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
@@ -163,7 +163,7 @@ func ListKeys(conf *config.Config) {
 }
 
 // GenHostKey ...
-func GenHostKey(conf *config.Config, pw string) {
+func GenHostKey(conf *config.DuplyConfig, pw string) {
 	p, err := utils.NewHavgedProcess()
 	if err != nil {
 		glog.Fatalf("Failed to start haveged: %v", err)

@@ -21,13 +21,13 @@ func NewService(conf *config.Config) (*Service, error) {
 	}
 
 	// Import configured public and private keys
-	err := gpg.ImportKeys(conf)
+	err := gpg.ImportKeys(&conf.Duply)
 	if err != nil {
 		return nil, fmt.Errorf("Failed to import keys: %v", err)
 	}
 
 	glog.Info("list Keys")
-	gpg.ListKeys(conf)
+	gpg.ListKeys(&conf.Duply)
 
 	err = conf.Duply.WriteGlobbingList()
 	if err != nil {
@@ -41,15 +41,11 @@ func NewService(conf *config.Config) (*Service, error) {
 	return &Service{Config: conf}, nil
 }
 
-// Service ..
-type Service struct {
-	Config *config.Config
-}
-
 // Run the service
 func (s *Service) Run() {
 	// Run scheduler
-	// Run MQ
+
 	// Run http
 
+	// Run MQ
 }

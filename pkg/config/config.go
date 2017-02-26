@@ -104,17 +104,17 @@ func (d *DuplyConfig) ProfileRoot() string {
 }
 
 // Env returns enviroment variables
-func (c *Config) Env() []string {
+func (d *DuplyConfig) Env() []string {
 	return []string{
-		fmt.Sprintf("GNUPGHOME=%s", path.Join(c.Duply.Home, "gpg")),
+		fmt.Sprintf("GNUPGHOME=%s", path.Join(d.Home, "gpg")),
 		// Swift authentication
-		fmt.Sprintf("SWIFT_AUTHURL=%s", c.Duply.Auth.URL),
-		fmt.Sprintf("SWIFT_USERNAME=%s", c.Duply.Auth.Username),
-		fmt.Sprintf("SWIFT_PASSWORD=%s", c.Duply.Auth.Password),
-		fmt.Sprintf("SWIFT_REGION_NAME=%s", c.Duply.Auth.Region),
-		fmt.Sprintf("SWIFT_USER_DOMAIN_NAME=%s", c.Duply.Auth.UserDomainName),
-		fmt.Sprintf("SWIFT_PROJECT_DOMAIN_NAME=%s", c.Duply.Auth.ProjectDomainName),
-		fmt.Sprintf("SWIFT_TENANTNAME=%s", c.Duply.Auth.ProjectName),
-		fmt.Sprintf("SWIFT_AUTHVERSION=%s", c.Duply.Auth.Version),
+		fmt.Sprintf("SWIFT_AUTHURL=%s", d.Auth.URL),
+		fmt.Sprintf("SWIFT_USERNAME=%s", d.Auth.Username),
+		fmt.Sprintf("SWIFT_PASSWORD=%s", d.Auth.Password),
+		fmt.Sprintf("SWIFT_REGION_NAME=%s", d.Auth.Region),
+		fmt.Sprintf("SWIFT_USER_DOMAIN_NAME=%s", d.Auth.UserDomainName),
+		fmt.Sprintf("SWIFT_PROJECT_DOMAIN_NAME=%s", d.Auth.ProjectDomainName),
+		fmt.Sprintf("SWIFT_TENANTNAME=%s", d.Auth.ProjectName),
+		fmt.Sprintf("SWIFT_AUTHVERSION=%s", d.Auth.Version),
 	}
 }
