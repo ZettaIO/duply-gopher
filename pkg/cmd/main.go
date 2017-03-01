@@ -29,12 +29,7 @@ func main() {
 	}
 
 	service.Scheduler.Every(10).Seconds().Do(Run, service)
-
-	glog.Info("Starting")
-	for {
-		b := <-service.Scheduler.Start()
-		glog.Info(b)
-	}
+	service.Scheduler.Start()
 
 	// Wait for sigterm
 	glog.Info("Waiting..")
