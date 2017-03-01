@@ -8,6 +8,8 @@ RUN apk add --update duplicity duply libffi libffi-dev ca-certificates build-bas
 
 WORKDIR /srv/duply-gopher
 
-COPY ["duply-gopher", "data", "/srv/duply-gopher/"]
+COPY duply-gopher /srv/duply-gopher/
+COPY scripts /srv/duply-gopher/scripts
+COPY templates /srv/duply-gopher/templates
 
 CMD ["./duply-gopher", "config.yaml"]

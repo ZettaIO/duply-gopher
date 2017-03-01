@@ -2,10 +2,7 @@ package config
 
 import (
 	"fmt"
-	"io/ioutil"
 	"path"
-
-	"github.com/go-yaml/yaml"
 )
 
 // Config for the service
@@ -73,24 +70,6 @@ type HTTPConfig struct {
 type RabbitMqConfig struct {
 	Host string `yaml:"host"`
 	Port string `yaml:"port"`
-}
-
-// NewConfig creats a new config
-func NewConfig(filename string) (*Config, error) {
-	data, err := ioutil.ReadFile(filename)
-	if err != nil {
-		return nil, err
-	}
-	conf := NewDefaults()
-	err = yaml.Unmarshal(data, conf)
-	if err != nil {
-		return nil, err
-	}
-	err = conf.Verify()
-	if err != nil {
-		return nil, err
-	}
-	return conf, nil
 }
 
 // GPGRoot returns the root directory for gpg data

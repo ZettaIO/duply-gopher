@@ -34,6 +34,7 @@ If new dependencies are added run `godep save ./...` in the project root.
 
 ### Libraries
 
+- https://github.com/mitchellh/multistep
 - https://github.com/jasonlvhit/gocron
 - https://github.com/golang/glog
 
