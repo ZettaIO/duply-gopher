@@ -20,7 +20,7 @@ func main() {
 		glog.Fatalf("Failed to read config file: %v", err)
 	}
 
-	service := &Service{
+	job := &BackupJob{
 		Steps: []multistep.Step{
 			&steps.StepDuplyBackup{Config: conf.Duply},
 			&steps.StepDuplyPurge{Config: conf.Duply},
@@ -28,24 +28,24 @@ func main() {
 		Scheduler: gocron.NewScheduler(),
 	}
 
-	service.Scheduler.Every(10).Seconds().Do(Run, service)
-	service.Scheduler.Start()
+	job.Scheduler.Every(10).Seconds().Do(Run, job)
+	job.Scheduler.Start()
 
 	// Wait for sigterm
 	glog.Info("Waiting..")
 	handleSigterm()
 }
 
-type Service struct {
+type BackupJob struct {
 	Steps     []multistep.Step
 	Scheduler *gocron.Scheduler
 }
 
-func Run(s *Service) {
+func Run(job *BackupJob) {
 	glog.Info("Run() ..")
 	state := new(multistep.BasicStateBag)
 	state.Put("Somevalue", 42)
-	runner := multistep.BasicRunner{Steps: s.Steps}
+	runner := multistep.BasicRunner{Steps: job.Steps}
 	runner.Run(state)
 
 	// Do we have a backup result in the state bag?
