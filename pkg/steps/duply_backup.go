@@ -13,21 +13,21 @@ type StepDuplyBackup struct {
 }
 
 type DuplyBackupResult struct {
-	StartTime                  time.Time
-	EndTime                    time.Time
-	ElapsedTime                time.Duration
-	SourceFiles                int
-	SourceFileSize             int64
-	NewFiles                   int64
-	NewFileSize                int64
-	DeletedFiles               int64
-	ChangedFiles               int64
-	ChangedFileSize            int64
-	ChangedDeltaSize           int64
-	DeltaEntries               int64
-	RawDeltaSize               int64
-	TotalDestinationSizeChange int64
-	Errors                     int64
+	StartTime                  time.Time     `json:"start_time"`
+	EndTime                    time.Time     `json:"end_time"`
+	ElapsedTime                time.Duration `json:"elapsed_time"`
+	SourceFiles                int           `json:"source_files"`
+	SourceFileSize             int64         `json:"source_file_size"`
+	NewFiles                   int64         `json:"new_files"`
+	NewFileSize                int64         `json:"new_file_size"`
+	DeletedFiles               int64         `json:"deleted_files"`
+	ChangedFiles               int64         `json:"changed_files"`
+	ChangedFileSize            int64         `json:"changed_file_size"`
+	ChangedDeltaSize           int64         `json:"changed_delta_size"`
+	DeltaEntries               int64         `json:"delta_entries"`
+	RawDeltaSize               int64         `json:"raw_delta_size"`
+	TotalDestinationSizeChange int64         `json:"toal_destination_size_change"`
+	Errors                     int64         `json:"errors"`
 }
 
 func (s *StepDuplyBackup) Run(state multistep.StateBag) multistep.StepAction {
