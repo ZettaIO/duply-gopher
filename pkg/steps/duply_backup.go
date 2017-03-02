@@ -40,7 +40,7 @@ func (s *StepDuplyBackup) Run(state multistep.StateBag) multistep.StepAction {
 	cmd.Env = s.Config.Env()
 	out, err := cmd.Output()
 	if err != nil {
-		state.Put("error", fmt.Errorf("Duply backup failed: %v", err))
+		state.Put("error", fmt.Errorf("Duply backup failed: %v : %v", err, string(out)))
 		return multistep.ActionHalt
 	}
 	r, err := parseOutput(string(out))
