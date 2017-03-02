@@ -15,12 +15,13 @@
 			"Rev": "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 		},
 		{
-			"ImportPath": "github.com/jasonlvhit/gocron",
-			"Rev": "42a5804d37aa0b9239b265e894a16b8edbf52d54"
-		},
-		{
 			"ImportPath": "github.com/mitchellh/multistep",
 			"Rev": "162146fc57112954184d90266f4733e900ed05a5"
+		},
+		{
+			"ImportPath": "github.com/robfig/cron",
+			"Comment": "v1-47-g9585fd5",
+			"Rev": "9585fd555638e77bba25f25db5c44b41f264aeb7"
 		}
 	]
 }
