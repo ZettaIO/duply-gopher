@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"os"
 	"os/signal"
@@ -9,8 +10,8 @@ import (
 	"github.com/ZettaIO/duply-gopher/pkg/config"
 	"github.com/ZettaIO/duply-gopher/pkg/steps"
 	"github.com/golang/glog"
-	"github.com/jasonlvhit/gocron"
 	"github.com/mitchellh/multistep"
+	"github.com/robfig/cron"
 )
 
 func main() {
@@ -25,10 +26,9 @@ func main() {
 			&steps.StepDuplyBackup{Config: conf.Duply},
 			&steps.StepDuplyPurge{Config: conf.Duply},
 		},
-		Scheduler: gocron.NewScheduler(),
+		Scheduler: cron.New(),
 	}
-
-	job.Scheduler.Every(10).Seconds().Do(Run, job)
+	job.Scheduler.AddFunc(conf.Duply.RunAt, func() { run(job) })
 	job.Scheduler.Start()
 
 	// Wait for sigterm
@@ -38,22 +38,36 @@ func main() {
 
 type BackupJob struct {
 	Steps     []multistep.Step
-	Scheduler *gocron.Scheduler
+	Scheduler *cron.Cron
 }
 
-func Run(job *BackupJob) {
-	glog.Info("Run() ..")
+func run(job *BackupJob) error {
+	glog.Info("---[ Run() Start ]---")
 	state := new(multistep.BasicStateBag)
 	state.Put("Somevalue", 42)
 	runner := multistep.BasicRunner{Steps: job.Steps}
 	runner.Run(state)
 
+	// Do we have any errors in the bag?
+	if err, ok := state.GetOk("error"); ok {
+		return err.(error)
+	}
+
 	// Do we have a backup result in the state bag?
-	if _, ok := state.GetOk("duply-backup-result"); !ok {
+	r, ok := state.GetOk("duply-backup-result")
+	if !ok {
 		glog.Info("Backup failed.. do something")
 	}
 
-	glog.Info("Run() .. DONE")
+	// Print out backup result as json
+	b, err := json.Marshal(r)
+	if err != nil {
+		return err
+	}
+	glog.Info("BackupResult: ", string(b))
+
+	glog.Info("---[ Run() End ]---")
+	return nil
 }
 
 // ArgsParsed contains all arguments paresed from commandline

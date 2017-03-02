@@ -1,9 +1,3 @@
-rabbitmq:
-  host: foo.bar.baz
-  port: 9000
-http:
-  port: 1337
-  shared_secret: "my-shared-secret"
 duply:
   config_home: /etc/duply
   container_name: "duply"
@@ -14,16 +8,17 @@ duply:
   max_full_backups: 2
   max_full_backup_age: "1M"
   max_full_with_incrs: 1
+  run_at: "1 * * * * *"
   # Can be configured with env variables
-  # auth:
-  #   swift_auth_url: https://identity.api.zetta.io/v3
-  #   swift_auth_version: 3
-  #   swift_region_name: "no-osl1"
-  #   swift_username: ""
-  #   swift_password: ""
-  #   swift_project_name: ""
-  #   swift_user_domain_name: ""
-  #   swift_project_domain_name: ""
+  auth:
+    swift_auth_url: https://identity.api.zetta.io/v3
+    swift_auth_version: 3
+    swift_region_name: "no-osl1"
+    swift_username: ""
+    swift_password: ""
+    swift_project_name: ""
+    swift_user_domain_name: ""
+    swift_project_domain_name: ""
   globbing:
     # include:
     #   - moo

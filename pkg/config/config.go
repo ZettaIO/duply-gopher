@@ -7,9 +7,7 @@ import (
 
 // Config for the service
 type Config struct {
-	Duply    DuplyConfig    `yaml:"duply"`
-	HTTP     HTTPConfig     `yaml:"http"`
-	RabbitMq RabbitMqConfig `yaml:"rabbitmq"`
+	Duply DuplyConfig `yaml:"duply"`
 }
 
 // DuplyConfig parameters
@@ -23,6 +21,7 @@ type DuplyConfig struct {
 	MaxFullBackupsWithIncr string              `yaml:"max_full_with_incrs"`
 	VolSize                string              `yaml:"volsize"`
 	ContainerName          string              `yaml:"container_name"`
+	RunAt                  string              `yaml:"run_at"`
 	Auth                   SwiftAuth           `yaml:"auth"`
 	Keys                   DuplyKeys           `yaml:"keys"`
 	Globbing               map[string][]string `yaml:"globbing"`
@@ -58,18 +57,6 @@ type DuplyHostKey struct {
 	Password string `yaml:"password"`
 	Public   string `yaml:"public"`
 	Private  string `yaml:"private"`
-}
-
-// HTTPConfig config
-type HTTPConfig struct {
-	Port         string `yaml:"port"`
-	SharedSecret string `yaml:"shared_secret"`
-}
-
-// RabbitMqConfig ..
-type RabbitMqConfig struct {
-	Host string `yaml:"host"`
-	Port string `yaml:"port"`
 }
 
 // GPGRoot returns the root directory for gpg data

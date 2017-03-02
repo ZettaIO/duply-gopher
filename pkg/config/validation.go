@@ -34,62 +34,36 @@ func (d *DuplyConfig) Verify() error {
 
 // Verify swift auth parameters
 func (a *SwiftAuth) Verify() error {
-	// Add auth from env variables if empty
-	if a.URL == "" {
-		a.URL = os.Getenv("SWIFT_AUTHURL")
-	}
-	if a.Version == "" {
-		a.Version = os.Getenv("SWIFT_AUTHVERSION")
-	}
-	if a.Region == "" {
-		a.Region = os.Getenv("SWIFT_REGION_NAME")
-	}
-	if a.Username == "" {
-		a.Username = os.Getenv("SWIFT_USERNAME")
-	}
-	if a.Password == "" {
-		a.Password = os.Getenv("SWIFT_PASSWORD")
-	}
-	if a.ProjectName == "" {
-		a.ProjectName = os.Getenv("SWIFT_TENANTNAME")
-	}
-	if a.UserDomainName == "" {
-		a.UserDomainName = os.Getenv("SWIFT_USER_DOMAIN_NAME")
-	}
-	if a.ProjectDomainName == "" {
-		a.ProjectDomainName = os.Getenv("SWIFT_PROJECT_DOMAIN_NAME")
-	}
-
 	// Finally check all values
-	err := errEmpty("duply.auth.swift_auth_url", a.URL)
+	err := envOrVal("duply.auth.swift_auth_url", "SWIFT_AUTHURL", &a.URL)
 	if err != nil {
 		return err
 	}
-	err = errEmpty("duply.auth.swift_auth_version", a.Version)
+	err = envOrVal("duply.auth.swift_auth_version", "SWIFT_AUTHVERSION", &a.Version)
 	if err != nil {
 		return err
 	}
-	err = errEmpty("duply.auth.swift_region_name", a.Region)
+	err = envOrVal("duply.auth.swift_region_name", "SWIFT_REGION_NAME", &a.Region)
 	if err != nil {
 		return err
 	}
-	err = errEmpty("duply.auth.swift_username", a.Username)
+	err = envOrVal("duply.auth.swift_username", "SWIFT_USERNAME", &a.Username)
 	if err != nil {
 		return err
 	}
-	err = errEmpty("duply.auth.swift_password", a.Password)
+	err = envOrVal("duply.auth.swift_password", "SWIFT_PASSWORD", &a.Password)
 	if err != nil {
 		return err
 	}
-	err = errEmpty("duply.auth.swift_project_name", a.ProjectName)
+	err = envOrVal("duply.auth.swift_project_name", "SWIFT_TENANTNAME", &a.ProjectName)
 	if err != nil {
 		return err
 	}
-	err = errEmpty("duply.auth.swift_user_domain_name", a.UserDomainName)
+	err = envOrVal("duply.auth.swift_user_domain_name", "SWIFT_USER_DOMAIN_NAME", &a.UserDomainName)
 	if err != nil {
 		return err
 	}
-	err = errEmpty("duply.auth.swift_project_domain_name", a.ProjectDomainName)
+	err = envOrVal("duply.auth.swift_project_domain_name", "SWIFT_PROJECT_DOMAIN_NAME", &a.ProjectDomainName)
 	if err != nil {
 		return err
 	}
@@ -116,3 +90,21 @@ func errEmpty(name, value string) error {
 	}
 	return nil
 }
+
+func envOrVal(name, env string, value *string) error {
+	e := os.Getenv("SWIFT_PROJECT_DOMAIN_NAME")
+	if e != "" {
+		*value = e
+		return nil
+	}
+	return errEmpty(name, *value)
+}
+
+// // errEmpty checks if a string is empty and creates an appropriate error
+// func errEmpty(name, env string, value *string) error {
+// 	if value == "" {
+// 		return fmt.Errorf("Field '%v' cannot be empty", name)
+// 	}
+// 	// os.Getenv("SWIFT_PROJECT_DOMAIN_NAME")
+// 	return nil
+// }
