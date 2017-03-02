@@ -2,6 +2,7 @@ package steps
 
 import (
 	"fmt"
+	"os/exec"
 	"strconv"
 	"strings"
 	"time"
@@ -35,23 +36,28 @@ type DuplyBackupResult struct {
 
 func (s *StepDuplyBackup) Run(state multistep.StateBag) multistep.StepAction {
 	glog.Info("Starting duply backup")
-	// ...
-	// r, err := parseOutput(data)
-	// ...
-	state.Put("duply-backup-result", &DuplyBackupResult{})
+	cmd := exec.Command("duply", "profile", "backup")
+	cmd.Env = s.Config.Env()
+	out, err := cmd.Output()
+	if err != nil {
+		state.Put("error", fmt.Errorf("Duply backup failed: %v", err))
+		return multistep.ActionHalt
+	}
+	r, err := parseOutput(string(out))
+	state.Put("duply-backup-result", r)
 	return multistep.ActionContinue
 }
 
-func (s *StepDuplyBackup) Cleanup(multistep.StateBag) {
+func (s *StepDuplyBackup) Cleanup(state multistep.StateBag) {
 	// This is called after all the steps have run or if the runner is
 	// cancelled so that cleanup can be performed.
+	glog.Info("Cleanup: duply backup")
 }
 
 func parseOutput(data string) (*DuplyBackupResult, error) {
 	r := &DuplyBackupResult{}
-	for i, line := range strings.Split(data, "\n") {
+	for _, line := range strings.Split(data, "\n") {
 		s := strings.Split(strings.TrimSpace(line), " ")
-		fmt.Println(i, " ", s)
 		if len(s) < 2 {
 			continue
 		}
