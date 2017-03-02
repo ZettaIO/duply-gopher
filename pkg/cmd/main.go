@@ -41,7 +41,7 @@ type BackupJob struct {
 	Scheduler *cron.Cron
 }
 
-func run(job *BackupJob) error {
+func run(job *BackupJob) {
 	glog.Info("---[ Run() Start ]---")
 	state := new(multistep.BasicStateBag)
 	state.Put("Somevalue", 42)
@@ -50,24 +50,26 @@ func run(job *BackupJob) error {
 
 	// Do we have any errors in the bag?
 	if err, ok := state.GetOk("error"); ok {
-		return err.(error)
+		glog.Error("Backup failed: ", err.(error))
+		return
 	}
 
 	// Do we have a backup result in the state bag?
 	r, ok := state.GetOk("duply-backup-result")
 	if !ok {
-		glog.Info("Backup failed.. do something")
+		glog.Error("Backup failed.. do something")
+		return
 	}
 
 	// Print out backup result as json
 	b, err := json.Marshal(r)
 	if err != nil {
-		return err
+		glog.Error("Failed to serialize backup result: ", err)
+		return
 	}
 	glog.Info("BackupResult: ", string(b))
 
 	glog.Info("---[ Run() End ]---")
-	return nil
 }
 
 // ArgsParsed contains all arguments paresed from commandline
