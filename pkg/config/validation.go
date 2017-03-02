@@ -92,7 +92,7 @@ func errEmpty(name, value string) error {
 }
 
 func envOrVal(name, env string, value *string) error {
-	e := os.Getenv("SWIFT_PROJECT_DOMAIN_NAME")
+	e := os.Getenv(env)
 	if e != "" {
 		*value = e
 		return nil
