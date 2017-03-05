@@ -15,6 +15,7 @@ See [configuration](docs/configuration.md).
   - Generates Duply configration files
     - Profile configuration file controlling backup parameters
     - Globbing file list
+- Runs duply backup and purge at the configured interval
 
 ## Additional features (Not done yet):
 
@@ -40,7 +41,7 @@ Configuration can also be defined or overridden with environment variables.
 ## Dependencies
 
 - GnuPG 2.x
-- Haveged
+- (Haveged?)
 
 ## Setting for development
 

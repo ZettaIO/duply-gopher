@@ -16,7 +16,7 @@ See also [config.json example](../examples/config.yaml).
 
 ## duply
 
-- `config_home`: Configuration location
+- `config_home`: Configuration location (`/etc/duply` is default and recommended)
 - `container_name`: Swift container name
 - `root`: The root path you are backing up
 - `arch_dir`: Where Duply stores its local archive
@@ -25,6 +25,7 @@ See also [config.json example](../examples/config.yaml).
 - `max_full_backups`: Max number of full backups duply will retain
 - `max_full_backup_age`: how old a full backup must be before a new full backup will be created
 - `max_full_with_incrs`: ..
+- `run_at`: Cron pattern of when Duply backup and purge should happen. (See [cron](https://godoc.org/github.com/robfig/cron))
 - `auth`: See auth section below
 - `globbing`: See globbing section below
 - `keys`: See keys section
@@ -61,6 +62,10 @@ Currently we only support either include or exclude. If both are defined the ser
 
 ### keys
 
+Note that currently you have to supply both the master and host key.
+This way the service can re-create the key chain and configuration on init
+without the need of persistent storage for this.
+
 - `master`
   - `id`: Id of the master key
   - `data`: The public part of master key
@@ -69,11 +74,3 @@ Currently we only support either include or exclude. If both are defined the ser
   - `password`: Password for the host key
   - `public`: Public key data
   - `private`: Private key data
-
-## amqp
-
-Configuration parameters for an apmq service (dummy values for now)
-
-## http
-
-Configuration parameters for an http service (dummy values for now)
