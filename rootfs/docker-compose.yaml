@@ -5,6 +5,8 @@ services:
     volumes:
       - ./data:/backup
       - ../examples/config.yaml:/srv/duply-gopher/config.yaml
+      # Map binary from host in dev
+      - ./duply-gopher:/srv/duply-gopher/duply-gopher
     environment:
       # For easy management when entering the container
       - GNUPGHOME=/etc/duply/gpg
@@ -17,6 +19,7 @@ services:
       - SWIFT_USER_DOMAIN_NAME=${OS_PROJECT_DOMAIN_NAME}
       - SWIFT_PROJECT_DOMAIN_NAME=${OS_USER_DOMAIN_NAME}
       - SWIFT_TENANTNAME=${OS_PROJECT_NAME}
+  # Testing...
   # rabbitmq:
   #   image: rabbitmq:3-management-alpine
   #   hostname: rabbitmq

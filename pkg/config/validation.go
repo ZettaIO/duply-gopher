@@ -99,12 +99,3 @@ func envOrVal(name, env string, value *string) error {
 	}
 	return errEmpty(name, *value)
 }
-
-// // errEmpty checks if a string is empty and creates an appropriate error
-// func errEmpty(name, env string, value *string) error {
-// 	if value == "" {
-// 		return fmt.Errorf("Field '%v' cannot be empty", name)
-// 	}
-// 	// os.Getenv("SWIFT_PROJECT_DOMAIN_NAME")
-// 	return nil
-// }
