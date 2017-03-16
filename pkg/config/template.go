@@ -29,7 +29,12 @@ func NewTemplate(tmplFile, dstFile string) (*Template, error) {
 		tmplBuf:   bytes.NewBuffer(make([]byte, 0, defBufferSize)),
 		outCmdBuf: bytes.NewBuffer(make([]byte, 0, defBufferSize)),
 	}
-	t, err := template.New(path.Base(tmplFile)).ParseFiles(tmplFile)
+	funcMap := template.FuncMap{
+		"ShortID": func(s string) string {
+			return s[(len(s) - 8):]
+		},
+	}
+	t, err := template.New(path.Base(tmplFile)).Funcs(funcMap).ParseFiles(tmplFile)
 	if err != nil {
 		return nil, err
 	}
